@@ -1,0 +1,13 @@
+.table{
+    border: 1px solid #666666;
+    display: table;
+    background-color: #eee;
+    margin: auto;
+}
+.column{
+    float: left;
+
+}
+.cell{
+    text-align: center;
+}

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema"
+        xmlns:tns="http://www.epam.tc.com/planes"
+        targetNamespace="http://www.epam.tc.com/planes"
+        elementFormDefault="qualified">
+    <element name="planes">
+        <complexType>
+            <sequence>
+                <element name="plane" type="tns:Plane" maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+
+    <complexType name="Plane">
+        <sequence>
+            <element name="manufacturer" type="string"/>
+            <element name="model" type="string"/>
+            <element name="origin" type="string"/>
+            <element name="type" default="passenger">
+                <simpleType>
+                    <restriction base="string">
+                        <enumeration value="passenger"/>
+                        <enumeration value="cargo"/>
+                        <enumeration value="military"/>
+                        <enumeration value="military-cargo"/>
+                        <enumeration value="fighter"/>
+                        <enumeration value="bomber"/>
+                        <enumeration value="postal"/>
+                        <enumeration value="fire-rescue"/>
+                    </restriction>
+                </simpleType>
+            </element>
+            <element name="crew" type="positiveInteger"/>
+            <element name="passenger_capacity" type="positiveInteger"/>
+            <element name="cargo_capacity" type="string"/>
+            <element name="price" type="positiveInteger"/>
+            <element name="engines" type="tns:Engines"/>
+            <element name="parameters" type="tns:Params"/>
+        </sequence>
+        <attribute name="id" type="string" use="required"/>
+    </complexType>
+
+    <complexType name="Engines">
+        <sequence>
+            <element name="eng_model" type="string"/>
+            <element name="eng_type" default="turbofan">
+                <simpleType>
+                    <restriction base="string">
+                        <enumeration value="turbofan"/>
+                        <enumeration value="internal combustion"/>
+                    </restriction>
+                </simpleType>
+            </element>
+        </sequence>
+        <attribute name="amount" type="positiveInteger" use="required"/>
+    </complexType>
+
+    <complexType name="Params">
+        <sequence>
+            <element name="height" type="positiveInteger"/>
+            <element name="length" type="positiveInteger"/>
+            <element name="wingspan" type="positiveInteger"/>
+            <element name="gross_weight" type="positiveInteger"/>
+        </sequence>
+        <attribute name="color" type="string"/>
+        <attribute name="radar" type="boolean"/>
+    </complexType>
+</schema>

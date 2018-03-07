@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<planes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.epam.tc.com/planes" 
+		xsi:schemaLocation="http://www.epam.tc.com/planes planes.xsd">
+		
+	<plane id="CPL1">
+		<manufacturer>Boeing</manufacturer>
+		<model>777-312ER</model>
+		<origin>USA</origin>
+		<type>passenger</type>
+		<crew>2</crew>
+		<passenger_capacity>368</passenger_capacity>
+		<cargo_capacity>200</cargo_capacity>
+		<price>650000</price>
+		<engines amount="2">
+			<eng_model>PW 4098</eng_model>
+			<eng_type>turbofan</eng_type>
+		</engines>
+		<parameters color="green" radar="true">
+			<height>18500</height>
+			<length>73900</length>
+			<wingspan>60900</wingspan>
+			<gross_weight>299370</gross_weight>
+		</parameters>
+	</plane>
+	<plane id="CPL2">
+		<manufacturer>Boeing</manufacturer>
+		<model>777-312ER</model>
+		<origin>USA</origin>
+		<type>passenger</type>
+		<crew>2</crew>
+		<passenger_capacity>368</passenger_capacity>
+		<cargo_capacity>200</cargo_capacity>
+		<price>650000</price>
+		<engines amount="2">
+			<eng_model>PW 4098</eng_model>
+			<eng_type>turbofan</eng_type>
+		</engines>
+		<parameters color="green" radar="true">
+			<height>18500</height>
+			<length>73900</length>
+			<wingspan>60900</wingspan>
+			<gross_weight>299370</gross_weight>
+		</parameters>
+	</plane>
+	<plane id="CPL3">
+		<manufacturer>Boeing</manufacturer>
+		<model>777-312ER</model>
+		<origin>USA</origin>
+		<type>passenger</type>
+		<crew>2</crew>
+		<passenger_capacity>368</passenger_capacity>
+		<cargo_capacity>200</cargo_capacity>
+		<price>650000</price>
+		<engines amount="2">
+			<eng_model>PW 4098</eng_model>
+			<eng_type>turbofan</eng_type>
+		</engines>
+		<parameters color="green" radar="true">
+			<height>18500</height>
+			<length>73900</length>
+			<wingspan>60900</wingspan>
+			<gross_weight>299370</gross_weight>
+		</parameters>
+	</plane>
+	<plane id="CPL4">
+		<manufacturer>Boeing</manufacturer>
+		<model>777-312ER</model>
+		<origin>USA</origin>
+		<type>passenger</type>
+		<crew>2</crew>
+		<passenger_capacity>368</passenger_capacity>
+		<cargo_capacity>200</cargo_capacity>
+		<price>650000</price>
+		<engines amount="2">
+			<eng_model>PW 4098</eng_model>
+			<eng_type>turbofan</eng_type>
+		</engines>
+		<parameters color="green" radar="true">
+			<height>18500</height>
+			<length>73900</length>
+			<wingspan>60900</wingspan>
+			<gross_weight>299370</gross_weight>
+		</parameters>
+	</plane>
+	<plane id="CPL5">
+		<manufacturer>Boeing</manufacturer>
+		<model>777-312ER</model>
+		<origin>USA</origin>
+		<type>passenger</type>
+		<crew>2</crew>
+		<passenger_capacity>368</passenger_capacity>
+		<cargo_capacity>200</cargo_capacity>
+		<price>650000</price>
+		<engines amount="2">
+			<eng_model>PW 4098</eng_model>
+			<eng_type>turbofan</eng_type>
+		</engines>
+		<parameters color="green" radar="true">
+			<height>18500</height>
+			<length>73900</length>
+			<wingspan>60900</wingspan>
+			<gross_weight>299370</gross_weight>
+		</parameters>
+	</plane>
+	<plane id="CPL6">
+		<manufacturer>Boeing</manufacturer>
+		<model>777-312ER</model>
+		<origin>USA</origin>
+		<type>passenger</type>
+		<crew>2</crew>
+		<passenger_capacity>368</passenger_capacity>
+		<cargo_capacity>200</cargo_capacity>
+		<price>650000</price>
+		<engines amount="2">
+			<eng_model>PW 4098</eng_model>
+			<eng_type>turbofan</eng_type>
+		</engines>
+		<parameters color="green" radar="true">
+			<height>18500</height>
+			<length>73900</length>
+			<wingspan>60900</wingspan>
+			<gross_weight>299370</gross_weight>
+		</parameters>
+	</plane>
+	<plane id="CPL7">
+		<manufacturer>Boeing</manufacturer>
+		<model>777-312ER</model>
+		<origin>USA</origin>
+		<type>passenger</type>
+		<crew>2</crew>
+		<passenger_capacity>368</passenger_capacity>
+		<cargo_capacity>200</cargo_capacity>
+		<price>650000</price>
+		<engines amount="2">
+			<eng_model>PW 4098</eng_model>
+			<eng_type>turbofan</eng_type>
+		</engines>
+		<parameters color="green" radar="true">
+			<height>18500</height>
+			<length>73900</length>
+			<wingspan>60900</wingspan>
+			<gross_weight>299370</gross_weight>
+		</parameters>
+	</plane>
+	<plane id="CPL8">
+		<manufacturer>Boeing</manufacturer>
+		<model>777-312ER</model>
+		<origin>USA</origin>
+		<type>passenger</type>
+		<crew>2</crew>
+		<passenger_capacity>368</passenger_capacity>
+		<cargo_capacity>200</cargo_capacity>
+		<price>650000</price>
+		<engines amount="2">
+			<eng_model>PW 4098</eng_model>
+			<eng_type>turbofan</eng_type>
+		</engines>
+		<parameters color="green" radar="true">
+			<height>18500</height>
+			<length>73900</length>
+			<wingspan>60900</wingspan>
+			<gross_weight>299370</gross_weight>
+		</parameters>
+	</plane>
+	<plane id="CPL9">
+		<manufacturer>Boeing</manufacturer>
+		<model>777-312ER</model>
+		<origin>USA</origin>
+		<type>passenger</type>
+		<crew>2</crew>
+		<passenger_capacity>368</passenger_capacity>
+		<cargo_capacity>200</cargo_capacity>
+		<price>650000</price>
+		<engines amount="2">
+			<eng_model>PW 4098</eng_model>
+			<eng_type>turbofan</eng_type>
+		</engines>
+		<parameters color="green" radar="true">
+			<height>18500</height>
+			<length>73900</length>
+			<wingspan>60900</wingspan>
+			<gross_weight>299370</gross_weight>
+		</parameters>
+	</plane>
+	<plane id="CPL10">
+		<manufacturer>Boeing</manufacturer>
+		<model>777-312ER</model>
+		<origin>USA</origin>
+		<type>passenger</type>
+		<crew>2</crew>
+		<passenger_capacity>368</passenger_capacity>
+		<cargo_capacity>200</cargo_capacity>
+		<price>650000</price>
+		<engines amount="2">
+			<eng_model>PW 4098</eng_model>
+			<eng_type>turbofan</eng_type>
+		</engines>
+		<parameters color="green" radar="true">
+			<height>18500</height>
+			<length>73900</length>
+			<wingspan>60900</wingspan>
+			<gross_weight>299370</gross_weight>
+		</parameters>
+	</plane>
+</planes>
