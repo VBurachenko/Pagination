@@ -9,7 +9,7 @@ import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
 import by.epam.tc.dao.parser.AbstractItemBuilder;
-import by.epam.tc.dao.parser.ItemEnum;
+import by.epam.tc.dao.parser.ItemField;
 import by.epam.tc.entity.Engine;
 import by.epam.tc.entity.Parameters;
 import by.epam.tc.entity.Plane;
@@ -30,7 +30,7 @@ public class ItemsStAXBuilder extends AbstractItemBuilder {
 			int type = reader.next();
 			if (type == XMLStreamConstants.START_ELEMENT) {
 				name = reader.getLocalName();
-				if (ItemEnum.valueOf(name.toUpperCase()) == ItemEnum.PLANE) {
+				if (ItemField.valueOf(name.toUpperCase()) == ItemField.PLANE) {
 					Plane plane = buildPlane(reader);
 					items.add(plane);
 				}
@@ -40,14 +40,14 @@ public class ItemsStAXBuilder extends AbstractItemBuilder {
 	
 	private Plane buildPlane(XMLStreamReader reader) throws XMLStreamException {
 		Plane plane = new Plane();
-		plane.setId(reader.getAttributeValue(null, ItemEnum.ID.getValue()));
+		plane.setId(reader.getAttributeValue(null, ItemField.ID.getValue()));
 		String name;
 		while (reader.hasNext()) {
 			int type = reader.next();
 			switch (type) {
 			case XMLStreamConstants.START_ELEMENT:
 				name = reader.getLocalName();
-				switch (ItemEnum.valueOf(name.toUpperCase())) {
+				switch (ItemField.valueOf(name.toUpperCase())) {
 				case MANUFACTURER:
 					plane.setManufacturer(getXMLText(reader));
 					break;
@@ -88,7 +88,7 @@ public class ItemsStAXBuilder extends AbstractItemBuilder {
 				break;
 			case XMLStreamConstants.END_ELEMENT:
 				name = reader.getLocalName();
-				if (ItemEnum.valueOf(name.toUpperCase()) == ItemEnum.PLANE) {
+				if (ItemField.valueOf(name.toUpperCase()) == ItemField.PLANE) {
 					return plane;
 				}
 				break;
@@ -99,7 +99,7 @@ public class ItemsStAXBuilder extends AbstractItemBuilder {
 	
 	private Engine getXMLEngines(XMLStreamReader reader) throws XMLStreamException {
 		Engine engine = new Engine();
-		int amount = Integer.parseInt(reader.getAttributeValue(null, ItemEnum.AMOUNT.getValue()));
+		int amount = Integer.parseInt(reader.getAttributeValue(null, ItemField.AMOUNT.getValue()));
 		engine.setAmount(amount);
 		int type;
 		String name;
@@ -108,7 +108,7 @@ public class ItemsStAXBuilder extends AbstractItemBuilder {
 			switch (type) {
 			case XMLStreamConstants.START_ELEMENT:
 				name = reader.getLocalName();
-				switch (ItemEnum.valueOf(name.toUpperCase())) {
+				switch (ItemField.valueOf(name.toUpperCase())) {
 				case ENG_TYPE:
 					engine.setType(getXMLText(reader));
 					break;
@@ -121,7 +121,7 @@ public class ItemsStAXBuilder extends AbstractItemBuilder {
 				break;
 			case XMLStreamConstants.END_ELEMENT:
 				name = reader.getLocalName();
-				if (ItemEnum.valueOf(name.toUpperCase()) == ItemEnum.ENGINES) {
+				if (ItemField.valueOf(name.toUpperCase()) == ItemField.ENGINES) {
 					return engine;
 				}
 				break;
@@ -133,8 +133,8 @@ public class ItemsStAXBuilder extends AbstractItemBuilder {
 	private Parameters getXMLParameters(XMLStreamReader reader) throws XMLStreamException {
 		Parameters params = new Parameters();
 		
-		params.setColor(reader.getAttributeValue(null, ItemEnum.COLOR.getValue()));
-		boolean radar = Boolean.valueOf(reader.getAttributeValue(null, ItemEnum.RADAR.getValue()));
+		params.setColor(reader.getAttributeValue(null, ItemField.COLOR.getValue()));
+		boolean radar = Boolean.valueOf(reader.getAttributeValue(null, ItemField.RADAR.getValue()));
 		params.setRadar(radar);
 		
 		int type;
@@ -145,7 +145,7 @@ public class ItemsStAXBuilder extends AbstractItemBuilder {
 			switch (type) {
 			case XMLStreamConstants.START_ELEMENT:
 				name = reader.getLocalName();
-				switch(ItemEnum.valueOf(name.toUpperCase())) {
+				switch(ItemField.valueOf(name.toUpperCase())) {
 				case HEIGHT:
 					int height = Integer.parseInt(getXMLText(reader));
 					params.setHeight(height);
@@ -168,7 +168,7 @@ public class ItemsStAXBuilder extends AbstractItemBuilder {
 			
 			case XMLStreamConstants.END_ELEMENT:
 				name = reader.getLocalName();
-				if (ItemEnum.valueOf(name.toUpperCase()) == ItemEnum.PARAMETERS) {
+				if (ItemField.valueOf(name.toUpperCase()) == ItemField.PARAMETERS) {
 					return params;
 				}
 				break;

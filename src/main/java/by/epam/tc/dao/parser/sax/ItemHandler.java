@@ -8,31 +8,29 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import by.epam.tc.dao.parser.ItemEnum;
+import by.epam.tc.dao.parser.ItemField;
 import by.epam.tc.entity.Plane;
-
-import static by.epam.tc.dao.util.Util.parseToInt;
 
 public class ItemHandler extends DefaultHandler {
 
 	private List<Plane> itemsList;
-	private Plane currentPlane;
-	private ItemEnum currentItem;
-	private EnumSet<ItemEnum> description;
+	private Plane currentItem;
+	private ItemField field;
+	private EnumSet<ItemField> fieldsSet;
 
 	public ItemHandler() {
 		itemsList = new ArrayList<>();
-		description = EnumSet.range(ItemEnum.MANUFACTURER, ItemEnum.GROSS_WEIGHT);
+		fieldsSet = EnumSet.range(ItemField.MANUFACTURER, ItemField.GROSS_WEIGHT);
 	}
 
 	@Override
 	public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
-		if (localName.equals(ItemEnum.PLANE.getValue())) {
-			currentPlane = new Plane();
+		if (localName.equals(ItemField.PLANE.getValue())) {
+			currentItem = new Plane();
 		} else {
-			ItemEnum temp = ItemEnum.valueOf(localName.toUpperCase());
-			if (description.contains(temp)) {
-				currentItem = temp;
+			ItemField temp = ItemField.valueOf(localName.toUpperCase());
+			if (fieldsSet.contains(temp)) {
+				field = temp;
 			}
 		}
 		if (attributes.getLength() != 0){
@@ -43,34 +41,32 @@ public class ItemHandler extends DefaultHandler {
 	@Override
 	public void characters(char[] ch, int start, int length) throws SAXException {
 		String content = new String(ch, start, length);
-		if (currentPlane != null){
-			CommandFactory factory = new CommandFactory(currentPlane);
-			if (currentItem != null){
-				Command command = factory.getAction(currentItem);
-				command.execute(content);
-			}
+		if (currentItem != null && field != null){
+			CommandFactory factory = new CommandFactory(currentItem);
+			Command command = factory.getAction(field);
+			command.execute(content);
 		}
-		currentItem = null;
+		field = null;
 	}
 
 	@Override
 	public void endElement(String uri, String localName, String qName) throws SAXException {
-		if (localName.equals(ItemEnum.PLANE.getValue())) {
-			itemsList.add(currentPlane);
+		if (localName.equals(ItemField.PLANE.getValue())) {
+			itemsList.add(currentItem);
 		}
 	}
 
 	private void setAttributes(Attributes attributes) {
 
 		if (attributes.getLength() == 1) {
-			String attrId = ItemEnum.ID.getValue();
-			String attrAmount = ItemEnum.AMOUNT.getValue();
+			String attrId = ItemField.ID.getValue();
+			String attrAmount = ItemField.AMOUNT.getValue();
 
 			if (attributes.getLocalName(0).equals(attrId)) {
-				currentPlane.setId(attributes.getValue(0));
+				currentItem.setId(attributes.getValue(0));
 			} else if(attributes.getLocalName(0).equals(attrAmount)){
 				int amount = Integer.valueOf(attributes.getValue(0));
-				currentPlane.getEngine().setAmount(amount);
+				currentItem.getEngine().setAmount(amount);
 			}
 
 		} else {
@@ -78,8 +74,8 @@ public class ItemHandler extends DefaultHandler {
 			String color = attributes.getValue(0);
 			boolean radar = Boolean.valueOf(attributes.getValue(1));
 
-			currentPlane.getParameters().setColor(color);
-			currentPlane.getParameters().setRadar(radar);
+			currentItem.getParameters().setColor(color);
+			currentItem.getParameters().setRadar(radar);
 
 		}
 	}
