@@ -1,5 +1,6 @@
 import by.epam.tc.dao.parser.AbstractItemBuilder;
 import by.epam.tc.dao.parser.sax.ItemsSAXBuilder;
+import by.epam.tc.dao.parser.stax.ItemsStAXBuilder;
 import by.epam.tc.service.ParserService;
 import by.epam.tc.service.ServiceFactory;
 import by.epam.tc.service.exception.ServiceException;
@@ -17,7 +18,7 @@ public class Main {
     public static void main(String[] args) {
 
         try (InputStream stream = new FileInputStream(PATH)){
-            AbstractItemBuilder ab = new ItemsSAXBuilder();
+            AbstractItemBuilder ab = new ItemsStAXBuilder();
             ab.buildListOfItems(stream);
             System.out.println(ab.getItems());
         } catch (IOException e) {
