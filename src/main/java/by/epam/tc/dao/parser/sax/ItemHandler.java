@@ -8,27 +8,27 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import by.epam.tc.dao.parser.PlaneEnum;
+import by.epam.tc.dao.parser.ItemEnum;
 import by.epam.tc.entity.Plane;
 
 public class ItemHandler extends DefaultHandler {
 
 	private List<Plane> planes;
 	private Plane currentPlane;
-	private PlaneEnum currentDescription;
-	private EnumSet<PlaneEnum> description;
+	private ItemEnum currentDescription;
+	private EnumSet<ItemEnum> description;
 
 	public ItemHandler() {
 		planes = new ArrayList<>();
-		description = EnumSet.range(PlaneEnum.MANUFACTURER, PlaneEnum.GROSS_WEIGHT);
+		description = EnumSet.range(ItemEnum.MANUFACTURER, ItemEnum.GROSS_WEIGHT);
 	}
 
 	@Override
 	public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
-		if (localName.equals(PlaneEnum.PLANE.getValue())) {
+		if (localName.equals(ItemEnum.PLANE.getValue())) {
 			currentPlane = new Plane();
 		} else {
-			PlaneEnum temp = PlaneEnum.valueOf(localName.toUpperCase());
+			ItemEnum temp = ItemEnum.valueOf(localName.toUpperCase());
 			if (description.contains(temp)) {
 				currentDescription = temp;
 			}
@@ -95,7 +95,7 @@ public class ItemHandler extends DefaultHandler {
 
 	@Override
 	public void endElement(String uri, String localName, String qName) throws SAXException {
-		if (localName.equals(PlaneEnum.PLANE.getValue())) {
+		if (localName.equals(ItemEnum.PLANE.getValue())) {
 			planes.add(currentPlane);
 		}
 	}
@@ -103,8 +103,8 @@ public class ItemHandler extends DefaultHandler {
 	private void setAttributes(Attributes attributes) {
 
 		if (attributes.getLength() == 1) {
-			String attrId = PlaneEnum.ID.getValue();
-			String attrAmount = PlaneEnum.AMOUNT.getValue();
+			String attrId = ItemEnum.ID.getValue();
+			String attrAmount = ItemEnum.AMOUNT.getValue();
 
 			if (attributes.getLocalName(0).equals(attrId)) {
 				currentPlane.setId(attributes.getValue(0));

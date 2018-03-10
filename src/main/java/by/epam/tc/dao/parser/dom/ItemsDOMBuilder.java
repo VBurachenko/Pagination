@@ -21,6 +21,8 @@ import by.epam.tc.entity.Engine;
 import by.epam.tc.entity.Parameters;
 import by.epam.tc.entity.Plane;
 
+import static by.epam.tc.dao.parser.Constants.*;
+
 public class ItemsDOMBuilder extends AbstractItemBuilder {
 	
 	private DocumentBuilder docBuilder;
@@ -35,7 +37,7 @@ public class ItemsDOMBuilder extends AbstractItemBuilder {
 	public void buildListOfItems(InputStream stream) throws SAXException, IOException {
 		Document document = docBuilder.parse(new InputSource(stream));
 		Element root = document.getDocumentElement();
-		NodeList planesList = root.getElementsByTagName("plane");
+		NodeList planesList = root.getElementsByTagName(PLANE);
 		for (int i = 0; i < planesList.getLength(); i++) {
 			Element planeElement = (Element) planesList.item(i);
 			Plane plane = buildItem(planeElement);
@@ -46,50 +48,50 @@ public class ItemsDOMBuilder extends AbstractItemBuilder {
 	private Plane buildItem(Element planeElement) {
 		Plane plane = new Plane();
 		
-		plane.setId(planeElement.getAttribute("id"));
-		plane.setManufacturer(getElementTextContext(planeElement, "manufacturer"));
-		plane.setModel(getElementTextContext(planeElement, "model"));
-		plane.setOrigin(getElementTextContext(planeElement, "origin"));
-		plane.setType(getElementTextContext(planeElement, "type"));
+		plane.setId(planeElement.getAttribute(ID));
+		plane.setManufacturer(getElementTextContext(planeElement, MANUFACTURER));
+		plane.setModel(getElementTextContext(planeElement, MODEL));
+		plane.setOrigin(getElementTextContext(planeElement, ORIGIN));
+		plane.setType(getElementTextContext(planeElement, TYPE));
 		
-		int crew = Integer.parseInt(getElementTextContext(planeElement, "crew"));
+		int crew = Integer.parseInt(getElementTextContext(planeElement, CREW));
 		plane.setCrew(crew);
 		
-		int passCapacity = Integer.parseInt(getElementTextContext(planeElement, "passenger_capacity"));
+		int passCapacity = Integer.parseInt(getElementTextContext(planeElement, PASS_CAPACITY));
 		plane.setPassengerCapacity(passCapacity);
 		
-		int cargoCapacity = Integer.parseInt(getElementTextContext(planeElement, "cargo_capacity"));
+		int cargoCapacity = Integer.parseInt(getElementTextContext(planeElement, CARGO_CAPACITY));
 		plane.setCargoCapacity(cargoCapacity);
 		
-		int price = Integer.parseInt(getElementTextContext(planeElement, "price"));
+		int price = Integer.parseInt(getElementTextContext(planeElement, PRICE));
 		plane.setPrice(price);
 		
-		Element engineElement = (Element) planeElement.getElementsByTagName("engines").item(0);
+		Element engineElement = (Element) planeElement.getElementsByTagName(ENGINES).item(0);
 		Engine engine = plane.getEngine();
 		
-		int amount = Integer.parseInt(engineElement.getAttribute("amount"));
+		int amount = Integer.parseInt(engineElement.getAttribute(AMOUNT));
 		engine.setAmount(amount);
 		
-		engine.setModel(getElementTextContext(engineElement, "eng_model"));
-		engine.setType(getElementTextContext(engineElement, "eng_type"));
+		engine.setModel(getElementTextContext(engineElement, ENG_MODEL));
+		engine.setType(getElementTextContext(engineElement, ENG_TYPE));
 		
-		Element paramsElement = (Element) planeElement.getElementsByTagName("parameters").item(0);
+		Element paramsElement = (Element) planeElement.getElementsByTagName(PARAMS).item(0);
 		Parameters parameters = plane.getParameters();
 		
-		parameters.setColor(paramsElement.getAttribute("color"));
-		boolean radar = Boolean.valueOf(paramsElement.getAttribute("radar"));
+		parameters.setColor(paramsElement.getAttribute(COLOR));
+		boolean radar = Boolean.valueOf(paramsElement.getAttribute(RADAR));
 		parameters.setRadar(radar);
 		
-		int height = Integer.parseInt(getElementTextContext(paramsElement, "height"));
+		int height = Integer.parseInt(getElementTextContext(paramsElement, HEIGHT));
 		parameters.setHeight(height);
 		
-		int length = Integer.parseInt(getElementTextContext(paramsElement, "length"));
+		int length = Integer.parseInt(getElementTextContext(paramsElement, LENGTH));
 		parameters.setLength(length);
 		
-		int wingspan = Integer.parseInt(getElementTextContext(paramsElement, "wingspan"));
+		int wingspan = Integer.parseInt(getElementTextContext(paramsElement, WINGSPAN));
 		parameters.setWingspan(wingspan);
 		
-		int grossWeight = Integer.parseInt(getElementTextContext(paramsElement, "gross_weight"));
+		int grossWeight = Integer.parseInt(getElementTextContext(paramsElement, GROSS_WEIGHT));
 		parameters.setGrossWeight(grossWeight);
 		
 		return plane;

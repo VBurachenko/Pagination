@@ -62,7 +62,7 @@
             <element name="wingspan" type="positiveInteger"/>
             <element name="gross_weight" type="positiveInteger"/>
         </sequence>
-        <attribute name="color" type="string"/>
-        <attribute name="radar" type="boolean"/>
+        <attribute name="color" type="string" use="required"/>
+        <attribute name="radar" type="boolean" use="required"/>
     </complexType>
 </schema>
