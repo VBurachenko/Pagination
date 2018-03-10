@@ -11,15 +11,17 @@ import org.xml.sax.helpers.DefaultHandler;
 import by.epam.tc.dao.parser.ItemEnum;
 import by.epam.tc.entity.Plane;
 
+import static by.epam.tc.dao.util.Util.parseToInt;
+
 public class ItemHandler extends DefaultHandler {
 
-	private List<Plane> planes;
+	private List<Plane> itemsList;
 	private Plane currentPlane;
-	private ItemEnum currentDescription;
+	private ItemEnum currentItem;
 	private EnumSet<ItemEnum> description;
 
 	public ItemHandler() {
-		planes = new ArrayList<>();
+		itemsList = new ArrayList<>();
 		description = EnumSet.range(ItemEnum.MANUFACTURER, ItemEnum.GROSS_WEIGHT);
 	}
 
@@ -30,7 +32,7 @@ public class ItemHandler extends DefaultHandler {
 		} else {
 			ItemEnum temp = ItemEnum.valueOf(localName.toUpperCase());
 			if (description.contains(temp)) {
-				currentDescription = temp;
+				currentItem = temp;
 			}
 		}
 		if (attributes.getLength() != 0){
@@ -41,62 +43,20 @@ public class ItemHandler extends DefaultHandler {
 	@Override
 	public void characters(char[] ch, int start, int length) throws SAXException {
 		String content = new String(ch, start, length);
-		if (currentDescription != null) {
-			switch (currentDescription) {
-			case MANUFACTURER:
-				currentPlane.setManufacturer(content);
-				break;
-			case MODEL:
-				currentPlane.setModel(content);
-				break;
-			case ORIGIN:
-				currentPlane.setOrigin(content);
-				break;
-			case TYPE:
-				currentPlane.setType(content);
-				break;
-			case CREW:
-				currentPlane.setCrew(parseToInt(content));
-				break;
-			case PASSENGER_CAPACITY:
-				currentPlane.setPassengerCapacity(parseToInt(content));
-				break;
-			case CARGO_CAPACITY:
-				currentPlane.setCargoCapacity(parseToInt(content));
-				break;
-			case PRICE:
-				currentPlane.setPrice(parseToInt(content));
-				break;
-			case ENG_MODEL:
-				currentPlane.getEngine().setModel(content);
-				break;
-			case ENG_TYPE:
-				currentPlane.getEngine().setType(content);
-				break;
-			case HEIGHT:
-				currentPlane.getParameters().setHeight(parseToInt(content));
-				break;
-			case LENGTH:
-				currentPlane.getParameters().setLength(parseToInt(content));
-				break;
-			case WINGSPAN:
-				currentPlane.getParameters().setWingspan(parseToInt(content));
-				break;
-			case GROSS_WEIGHT:
-				currentPlane.getParameters().setGrossWeight(parseToInt(content));
-				break;
-			default:
-				throw new EnumConstantNotPresentException(currentDescription.getDeclaringClass(),
-						currentDescription.name());
+		if (currentPlane != null){
+			CommandFactory factory = new CommandFactory(currentPlane);
+			if (currentItem != null){
+				Command command = factory.getAction(currentItem);
+				command.execute(content);
 			}
 		}
-		currentDescription = null;
+		currentItem = null;
 	}
 
 	@Override
 	public void endElement(String uri, String localName, String qName) throws SAXException {
 		if (localName.equals(ItemEnum.PLANE.getValue())) {
-			planes.add(currentPlane);
+			itemsList.add(currentPlane);
 		}
 	}
 
@@ -124,12 +84,8 @@ public class ItemHandler extends DefaultHandler {
 		}
 	}
 
-	private int parseToInt(String s) {
-		return Integer.parseInt(s);
-	}
-
-	public List<Plane> getPlanes() {
-		return planes;
+	public List<Plane> getItemsList() {
+		return itemsList;
 	}
 
 }

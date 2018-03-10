@@ -26,7 +26,7 @@ public class ItemsSAXBuilder extends AbstractItemBuilder {
 	
 	public void buildListOfItems(InputStream inputStream) throws IOException, SAXException {
 		reader.parse(new InputSource(inputStream));
-		items = itemHandler.getPlanes();
+		items = itemHandler.getItemsList();
 	}
 	
 	public List<Plane> getItems(){
