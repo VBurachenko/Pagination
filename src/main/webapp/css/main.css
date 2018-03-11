@@ -1,3 +1,6 @@
+body{
+    background-color: #CBFFC9;
+}
 .table{
     border: 1px solid #666666;
     display: table;
@@ -10,4 +13,5 @@
 }
 .cell{
     text-align: center;
+    border: 1px solid #666666;
 }

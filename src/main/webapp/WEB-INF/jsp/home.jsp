@@ -12,17 +12,17 @@
     <h2>Hello!</h2>
     <form action="main.do" method="get">
         <input type="hidden" name="command" value="sax"/>
-        <input type="submit" value="SAX"/>
+        <input type="submit" value="SAX" class="button"/>
     </form>
 
     <form action="main.do" method="get">
         <input type="hidden" name="command" value="stax"/>
-        <input type="submit" value="StAX"/>
+        <input type="submit" value="StAX" class="button" />
     </form>
 
     <form action="main.do" method="get">
         <input type="hidden" name="command" value="dom"/>
-        <input type="submit" value="DOM"/>
+        <input type="submit" value="DOM" class="button"/>
     </form>
 </div>
 </body>
