@@ -14,6 +14,9 @@ import by.epam.tc.entity.Engine;
 import by.epam.tc.entity.Parameters;
 import by.epam.tc.entity.Plane;
 
+import static by.epam.tc.dao.util.Util.parseToBoolean;
+import static by.epam.tc.dao.util.Util.parseToInt;
+
 public class ItemsStAXBuilder extends AbstractItemBuilder {
 		
 	private XMLInputFactory inputFactory;
@@ -61,19 +64,19 @@ public class ItemsStAXBuilder extends AbstractItemBuilder {
 					plane.setType(getXMLText(reader));
 					break;
 				case CREW:
-					int crew = Integer.parseInt(getXMLText(reader));
+					int crew = parseToInt(getXMLText(reader));
 					plane.setCrew(crew);
 					break;
 				case PASSENGER_CAPACITY:
-					int passCapacity = Integer.parseInt(getXMLText(reader));
+					int passCapacity = parseToInt(getXMLText(reader));
 					plane.setPassengerCapacity(passCapacity);
 					break;
 				case CARGO_CAPACITY:
-					int cargCapacity = Integer.parseInt(getXMLText(reader));
+					int cargCapacity = parseToInt(getXMLText(reader));
 					plane.setCargoCapacity(cargCapacity);
 					break;
 				case PRICE:
-					int price = Integer.parseInt(getXMLText(reader));
+					int price = parseToInt(getXMLText(reader));
 					plane.setPrice(price);
 					break;
 				case ENGINES:
@@ -99,7 +102,7 @@ public class ItemsStAXBuilder extends AbstractItemBuilder {
 	
 	private Engine getXMLEngines(XMLStreamReader reader) throws XMLStreamException {
 		Engine engine = new Engine();
-		int amount = Integer.parseInt(reader.getAttributeValue(null, ItemField.AMOUNT.getValue()));
+		int amount = parseToInt(reader.getAttributeValue(null, ItemField.AMOUNT.getValue()));
 		engine.setAmount(amount);
 		int type;
 		String name;
@@ -134,7 +137,8 @@ public class ItemsStAXBuilder extends AbstractItemBuilder {
 		Parameters params = new Parameters();
 		
 		params.setColor(reader.getAttributeValue(null, ItemField.COLOR.getValue()));
-		boolean radar = Boolean.valueOf(reader.getAttributeValue(null, ItemField.RADAR.getValue()));
+
+		boolean radar = parseToBoolean(reader.getAttributeValue(null, ItemField.RADAR.getValue()));
 		params.setRadar(radar);
 		
 		int type;
@@ -147,19 +151,19 @@ public class ItemsStAXBuilder extends AbstractItemBuilder {
 				name = reader.getLocalName();
 				switch(ItemField.valueOf(name.toUpperCase())) {
 				case HEIGHT:
-					int height = Integer.parseInt(getXMLText(reader));
+					int height = parseToInt(getXMLText(reader));
 					params.setHeight(height);
 					break;
 				case LENGTH:
-					int length = Integer.parseInt(getXMLText(reader));
+					int length = parseToInt(getXMLText(reader));
 					params.setLength(length);
 					break;
 				case WINGSPAN:
-					int wingspan = Integer.parseInt(getXMLText(reader));
+					int wingspan = parseToInt(getXMLText(reader));
 					params.setWingspan(wingspan);
 					break;
 				case GROSS_WEIGHT:
-					int grossWeight = Integer.parseInt(getXMLText(reader));
+					int grossWeight = parseToInt(getXMLText(reader));
 					params.setGrossWeight(grossWeight);
 					break;
 					default:break;
