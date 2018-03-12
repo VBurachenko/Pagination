@@ -4,7 +4,7 @@ import by.epam.tc.entity.Plane;
 
 public abstract class Command {
 
-    private Plane plane;
+    protected Plane plane;
 
     public Command(Plane plane) {
         this.plane = plane;
