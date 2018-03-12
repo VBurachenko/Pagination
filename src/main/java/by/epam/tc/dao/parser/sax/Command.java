@@ -1,7 +1,18 @@
 package by.epam.tc.dao.parser.sax;
 
-public interface Command {
+import by.epam.tc.entity.Plane;
 
-    void execute(String content);
+public abstract class Command {
 
+    private Plane plane;
+
+    public Command(Plane plane) {
+        this.plane = plane;
+    }
+
+    public abstract void execute(String content);
+
+    public Plane getPlane() {
+        return plane;
+    }
 }

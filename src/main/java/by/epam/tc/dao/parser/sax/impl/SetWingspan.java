@@ -5,16 +5,14 @@ import by.epam.tc.entity.Plane;
 
 import static by.epam.tc.dao.util.Util.parseToInt;
 
-public class SetWingspan implements Command{
-
-    private Plane plane;
+public class SetWingspan extends Command{
 
     public SetWingspan(Plane plane) {
-        this.plane = plane;
+        super(plane);
     }
 
     @Override
     public void execute(String content) {
-        plane.getParameters().setWingspan(parseToInt(content));
+        getPlane().getParameters().setWingspan(parseToInt(content));
     }
 }

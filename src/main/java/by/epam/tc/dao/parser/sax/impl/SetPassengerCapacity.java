@@ -5,16 +5,15 @@ import by.epam.tc.entity.Plane;
 
 import static by.epam.tc.dao.util.Util.parseToInt;
 
-public class SetPassengerCapacity implements Command {
+public class SetPassengerCapacity extends Command {
 
-    private Plane plane;
 
     public SetPassengerCapacity(Plane plane) {
-        this.plane = plane;
+        super(plane);
     }
 
     @Override
     public void execute(String content) {
-        plane.setPassengerCapacity(parseToInt(content));
+        getPlane().setPassengerCapacity(parseToInt(content));
     }
 }

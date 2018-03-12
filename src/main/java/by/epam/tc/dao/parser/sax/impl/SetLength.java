@@ -5,16 +5,16 @@ import by.epam.tc.entity.Plane;
 
 import static by.epam.tc.dao.util.Util.parseToInt;
 
-public class SetLength implements Command{
+public class SetLength extends Command{
 
     private Plane plane;
 
     public SetLength(Plane plane) {
-        this.plane = plane;
+        super(plane);
     }
 
     @Override
     public void execute(String content) {
-        plane.getParameters().setLength(parseToInt(content));
+        getPlane().getParameters().setLength(parseToInt(content));
     }
 }

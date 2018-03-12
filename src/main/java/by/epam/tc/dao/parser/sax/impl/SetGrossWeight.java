@@ -5,16 +5,14 @@ import by.epam.tc.entity.Plane;
 
 import static by.epam.tc.dao.util.Util.parseToInt;
 
-public class SetGrossWeight implements Command{
-
-    private Plane plane;
+public class SetGrossWeight extends Command{
 
     public SetGrossWeight(Plane plane) {
-        this.plane = plane;
+        super(plane);
     }
 
     @Override
     public void execute(String content) {
-        plane.getParameters().setGrossWeight(parseToInt(content));
+        getPlane().getParameters().setGrossWeight(parseToInt(content));
     }
 }

@@ -3,16 +3,15 @@ package by.epam.tc.dao.parser.sax.impl;
 import by.epam.tc.dao.parser.sax.Command;
 import by.epam.tc.entity.Plane;
 
-public class SetEngineType implements Command{
+public class SetEngineType extends Command{
 
-    private Plane plane;
 
     public SetEngineType(Plane plane) {
-        this.plane = plane;
+        super(plane);
     }
 
     @Override
     public void execute(String content) {
-        plane.getEngine().setType(content);
+        getPlane().getEngine().setType(content);
     }
 }
