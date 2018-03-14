@@ -1,8 +1,8 @@
 package by.epam.tc.dao.parser;
 
-public final class Constants {
+public final class Constant {
 
-    private Constants() {
+    private Constant() {
     }
 
     public static final String PLANE = "plane";

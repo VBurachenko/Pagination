@@ -8,7 +8,7 @@ import java.util.Map;
 
 public final class CommandFactory {
 
-    private static final CommandFactory instance = new CommandFactory();
+    private static final CommandFactory INSTANCE = new CommandFactory();
 
     private CommandFactory(){
     }
@@ -25,6 +25,6 @@ public final class CommandFactory {
     }
 
     public static CommandFactory getInstance() {
-        return instance;
+        return INSTANCE;
     }
 }

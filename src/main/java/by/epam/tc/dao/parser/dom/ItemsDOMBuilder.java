@@ -21,7 +21,7 @@ import by.epam.tc.entity.Engine;
 import by.epam.tc.entity.Parameters;
 import by.epam.tc.entity.Plane;
 
-import static by.epam.tc.dao.parser.Constants.*;
+import static by.epam.tc.dao.parser.Constant.*;
 import static by.epam.tc.dao.util.Util.parseToBoolean;
 import static by.epam.tc.dao.util.Util.parseToInt;
 
