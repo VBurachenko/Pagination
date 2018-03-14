@@ -4,7 +4,7 @@ import by.epam.tc.service.impl.ParserServiceImpl;
 
 public class ServiceFactory {
 
-    private static final ServiceFactory instance = new ServiceFactory();
+    private static final ServiceFactory INSTANCE = new ServiceFactory();
 
     private final ParserService parserService = new ParserServiceImpl();
 
@@ -12,7 +12,7 @@ public class ServiceFactory {
     }
 
     public static ServiceFactory getInstance() {
-        return instance;
+        return INSTANCE;
     }
 
     public ParserService getParserService() {
