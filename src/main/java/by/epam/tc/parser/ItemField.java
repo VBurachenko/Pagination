@@ -1,4 +1,4 @@
-package by.epam.tc.dao.parser;
+package by.epam.tc.parser;
 
 public enum ItemField {
 	

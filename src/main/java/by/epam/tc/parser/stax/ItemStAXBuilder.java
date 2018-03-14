@@ -1,4 +1,4 @@
-package by.epam.tc.dao.parser.stax;
+package by.epam.tc.parser.stax;
 
 import java.io.InputStream;
 import java.util.List;
@@ -8,20 +8,20 @@ import javax.xml.stream.XMLStreamConstants;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
 
-import by.epam.tc.dao.parser.AbstractItemBuilder;
-import by.epam.tc.dao.parser.ItemField;
+import by.epam.tc.parser.AbstractItemBuilder;
+import by.epam.tc.parser.ItemField;
 import by.epam.tc.entity.Engine;
 import by.epam.tc.entity.Parameters;
 import by.epam.tc.entity.Plane;
 
-import static by.epam.tc.dao.util.Util.parseToBoolean;
-import static by.epam.tc.dao.util.Util.parseToInt;
+import static by.epam.tc.parser.util.Util.parseToBoolean;
+import static by.epam.tc.parser.util.Util.parseToInt;
 
-public class ItemsStAXBuilder extends AbstractItemBuilder {
+public class ItemStAXBuilder extends AbstractItemBuilder {
 		
 	private XMLInputFactory inputFactory;
 
-	public ItemsStAXBuilder() {
+	public ItemStAXBuilder() {
 		inputFactory = XMLInputFactory.newInstance();
 	}
 	

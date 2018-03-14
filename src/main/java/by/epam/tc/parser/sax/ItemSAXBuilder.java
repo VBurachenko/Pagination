@@ -1,4 +1,4 @@
-package by.epam.tc.dao.parser.sax;
+package by.epam.tc.parser.sax;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -9,16 +9,16 @@ import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.XMLReaderFactory;
 
-import by.epam.tc.dao.parser.AbstractItemBuilder;
+import by.epam.tc.parser.AbstractItemBuilder;
 import by.epam.tc.entity.Plane;
 
-public class ItemsSAXBuilder extends AbstractItemBuilder {
+public class ItemSAXBuilder extends AbstractItemBuilder {
 	
 	private ItemHandler itemHandler;
 	
 	private XMLReader reader;
 
-	public ItemsSAXBuilder() throws SAXException {
+	public ItemSAXBuilder() throws SAXException {
 		itemHandler = new ItemHandler();
 		reader = XMLReaderFactory.createXMLReader();
 		reader.setContentHandler(itemHandler);

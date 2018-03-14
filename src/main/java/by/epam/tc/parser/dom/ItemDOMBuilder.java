@@ -1,4 +1,4 @@
-package by.epam.tc.dao.parser.dom;
+package by.epam.tc.parser.dom;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -16,20 +16,20 @@ import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
-import by.epam.tc.dao.parser.AbstractItemBuilder;
+import by.epam.tc.parser.AbstractItemBuilder;
 import by.epam.tc.entity.Engine;
 import by.epam.tc.entity.Parameters;
 import by.epam.tc.entity.Plane;
 
-import static by.epam.tc.dao.parser.Constant.*;
-import static by.epam.tc.dao.util.Util.parseToBoolean;
-import static by.epam.tc.dao.util.Util.parseToInt;
+import static by.epam.tc.parser.Constant.*;
+import static by.epam.tc.parser.util.Util.parseToBoolean;
+import static by.epam.tc.parser.util.Util.parseToInt;
 
-public class ItemsDOMBuilder extends AbstractItemBuilder {
+public class ItemDOMBuilder extends AbstractItemBuilder {
 	
 	private DocumentBuilder docBuilder;
 
-	public ItemsDOMBuilder() throws ParserConfigurationException {
+	public ItemDOMBuilder() throws ParserConfigurationException {
 		items = new ArrayList<>();
 		DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 		docBuilder = factory.newDocumentBuilder();

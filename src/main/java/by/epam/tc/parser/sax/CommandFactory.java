@@ -1,7 +1,7 @@
-package by.epam.tc.dao.parser.sax;
+package by.epam.tc.parser.sax;
 
-import by.epam.tc.dao.parser.ItemField;
-import by.epam.tc.dao.parser.sax.impl.*;
+import by.epam.tc.parser.ItemField;
+import by.epam.tc.parser.sax.impl.*;
 import by.epam.tc.entity.Plane;
 
 import java.util.HashMap;

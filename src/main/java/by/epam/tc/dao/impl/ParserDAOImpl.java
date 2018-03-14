@@ -2,8 +2,8 @@ package by.epam.tc.dao.impl;
 
 import by.epam.tc.dao.ParserDAO;
 import by.epam.tc.dao.exception.DAOException;
-import by.epam.tc.dao.parser.AbstractItemBuilder;
-import by.epam.tc.dao.parser.ItemBuilderFactory;
+import by.epam.tc.parser.AbstractItemBuilder;
+import by.epam.tc.parser.ItemBuilderFactory;
 import by.epam.tc.entity.Plane;
 
 import org.apache.logging.log4j.LogManager;

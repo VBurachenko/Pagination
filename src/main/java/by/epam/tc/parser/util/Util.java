@@ -1,4 +1,4 @@
-package by.epam.tc.dao.util;
+package by.epam.tc.parser.util;
 
 public class Util {
 

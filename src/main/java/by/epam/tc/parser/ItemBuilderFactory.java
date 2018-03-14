@@ -1,12 +1,12 @@
-package by.epam.tc.dao.parser;
+package by.epam.tc.parser;
 
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.xml.sax.SAXException;
 
-import by.epam.tc.dao.parser.dom.ItemsDOMBuilder;
-import by.epam.tc.dao.parser.sax.ItemsSAXBuilder;
-import by.epam.tc.dao.parser.stax.ItemsStAXBuilder;
+import by.epam.tc.parser.dom.ItemDOMBuilder;
+import by.epam.tc.parser.sax.ItemSAXBuilder;
+import by.epam.tc.parser.stax.ItemStAXBuilder;
 
 public class ItemBuilderFactory {
 	
@@ -19,13 +19,13 @@ public class ItemBuilderFactory {
 		switch (type) {
 		
 		case SAX:
-			return new ItemsSAXBuilder();
+			return new ItemSAXBuilder();
 			
 		case DOM:
-			return new ItemsDOMBuilder();
+			return new ItemDOMBuilder();
 			
 		case STAX:
-			return new ItemsStAXBuilder();
+			return new ItemStAXBuilder();
 			
 			default:
 				throw new EnumConstantNotPresentException(type.getDeclaringClass(), type.name());

@@ -1,4 +1,4 @@
-package by.epam.tc.dao.parser.sax;
+package by.epam.tc.parser.sax;
 
 import java.util.ArrayList;
 import java.util.EnumSet;
@@ -8,7 +8,7 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import by.epam.tc.dao.parser.ItemField;
+import by.epam.tc.parser.ItemField;
 import by.epam.tc.entity.Plane;
 
 public class ItemHandler extends DefaultHandler {

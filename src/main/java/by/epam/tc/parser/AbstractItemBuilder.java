@@ -1,4 +1,4 @@
-package by.epam.tc.dao.parser;
+package by.epam.tc.parser;
 
 import java.io.IOException;
 import java.io.InputStream;
