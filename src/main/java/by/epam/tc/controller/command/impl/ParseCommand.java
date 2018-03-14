@@ -14,7 +14,7 @@ import java.util.List;
 
 public class ParseCommand implements Command {
 
-    private static final int ITEMS_PER_PAGE = 4;
+    private static final int ITEMS_PER_PAGE = 1;
 
     private static final int FIRST = 1;
 

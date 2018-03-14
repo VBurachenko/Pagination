@@ -59,26 +59,72 @@
 </div>
 
 <div class="table">
-    <c:if test="${page != 1}">
+    <c:if test="${page ne 1}">
         <div class="column">
             <a href="/main.do?page=${page - 1}&command=${command}"> Previous </a>
         </div>
     </c:if>
 
 
+    <%--<div class="column">--%>
+        <%--<c:forEach begin="1" end="${countOfPages}" var="i">--%>
+            <%--<div class="column">--%>
+                <%--<c:choose>--%>
+                    <%--<c:when test="${page eq i}">--%>
+                        <%--<div> ${i} </div>--%>
+                    <%--</c:when>--%>
+                    <%--<c:otherwise>--%>
+                        <%--<div><a href="/main.do?page=${i}&command=${command}"> ${i} </a></div>--%>
+                    <%--</c:otherwise>--%>
+                <%--</c:choose>--%>
+            <%--</div>--%>
+        <%--</c:forEach>--%>
+    <%--</div>--%>
+
     <div class="column">
-        <c:forEach begin="1" end="${countOfPages}" var="i">
-            <div class="column">
-                <c:choose>
-                    <c:when test="${page eq i}">
-                        <div> ${i} </div>
-                    </c:when>
-                    <c:otherwise>
-                        <div><a href="/main.do?page=${i}&command=${command}"> ${i} </a></div>
-                    </c:otherwise>
-                </c:choose>
-            </div>
-        </c:forEach>
+        <c:choose>
+            <c:when test="${countOfPages lt 10}">
+                <c:forEach begin="1" end="${countOfPages}" var="i">
+                    <div class="column">
+                        <c:choose>
+                            <c:when test="${page eq i}">
+                                <div> ${i} </div>
+                            </c:when>
+                            <c:otherwise>
+                                <div><a href="/main.do?page=${i}&command=${command}"> ${i} </a></div>
+                            </c:otherwise>
+                        </c:choose>
+                    </div>
+                </c:forEach>
+            </c:when>
+            <c:otherwise>
+                <c:forEach begin="${page}" end="${page + 2}" var="i">
+                    <div class="column">
+                        <c:choose>
+                            <c:when test="${page eq i}">
+                                <div> ${i} </div>
+                            </c:when>
+                            <c:otherwise>
+                                <div><a href="/main.do?page=${i}&command=${command}"> ${i} </a></div>
+                            </c:otherwise>
+                        </c:choose>
+                    </div>
+                </c:forEach>
+                <div class="column"> ... </div>
+                <c:forEach begin="${countOfPages - 2}" end="${countOfPages}" var="j">
+                    <div class="column">
+                        <c:choose>
+                            <c:when test="${page eq j}">
+                                <div> ${j} </div>
+                            </c:when>
+                            <c:otherwise>
+                                <div><a href="/main.do?page=${j}&command=${command}"> ${j} </a></div>
+                            </c:otherwise>
+                        </c:choose>
+                    </div>
+                </c:forEach>
+            </c:otherwise>
+        </c:choose>
     </div>
 
 
