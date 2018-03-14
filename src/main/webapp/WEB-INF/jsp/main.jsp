@@ -65,22 +65,6 @@
         </div>
     </c:if>
 
-
-    <%--<div class="column">--%>
-        <%--<c:forEach begin="1" end="${countOfPages}" var="i">--%>
-            <%--<div class="column">--%>
-                <%--<c:choose>--%>
-                    <%--<c:when test="${page eq i}">--%>
-                        <%--<div> ${i} </div>--%>
-                    <%--</c:when>--%>
-                    <%--<c:otherwise>--%>
-                        <%--<div><a href="/main.do?page=${i}&command=${command}"> ${i} </a></div>--%>
-                    <%--</c:otherwise>--%>
-                <%--</c:choose>--%>
-            <%--</div>--%>
-        <%--</c:forEach>--%>
-    <%--</div>--%>
-
     <div class="column">
         <c:choose>
             <c:when test="${countOfPages lt 10}">
