@@ -44,25 +44,33 @@ public class Engine {
 
 	@Override
 	public boolean equals(Object obj) {
-		if (this == obj)
+		if (this == obj){
 			return true;
-		if (obj == null)
+		}
+		if (obj == null){
 			return false;
-		if (getClass() != obj.getClass())
+		}
+		if (getClass() != obj.getClass()){
 			return false;
+		}
 		Engine other = (Engine) obj;
-		if (amount != other.amount)
+		if (amount != other.amount){
 			return false;
+		}
 		if (model == null) {
-			if (other.model != null)
+			if (other.model != null){
 				return false;
-		} else if (!model.equals(other.model))
+			}
+		} else if (!model.equals(other.model)){
 			return false;
+		}
 		if (type == null) {
-			if (other.type != null)
+			if (other.type != null){
 				return false;
-		} else if (!type.equals(other.type))
+			}
+		} else if (!type.equals(other.type)) {
 			return false;
+		}
 		return true;
 	}
 

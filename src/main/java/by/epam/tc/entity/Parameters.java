@@ -1,5 +1,7 @@
 package by.epam.tc.entity;
 
+import java.util.Objects;
+
 public class Parameters {
 	
 	private String color;
@@ -63,43 +65,26 @@ public class Parameters {
 	}
 
 	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((color == null) ? 0 : color.hashCode());
-		result = prime * result + grossWeight;
-		result = prime * result + height;
-		result = prime * result + length;
-		result = prime * result + (radar ? 1231 : 1237);
-		result = prime * result + wingspan;
-		return result;
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		Parameters that = (Parameters) o;
+		return isRadar() == that.isRadar() &&
+				getHeight() == that.getHeight() &&
+				getLength() == that.getLength() &&
+				getWingspan() == that.getWingspan() &&
+				getGrossWeight() == that.getGrossWeight() &&
+				Objects.equals(getColor(), that.getColor());
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Parameters other = (Parameters) obj;
-		if (color == null) {
-			if (other.color != null)
-				return false;
-		} else if (!color.equals(other.color))
-			return false;
-		if (grossWeight != other.grossWeight)
-			return false;
-		if (height != other.height)
-			return false;
-		if (length != other.length)
-			return false;
-		if (radar != other.radar)
-			return false;
-		if (wingspan != other.wingspan)
-			return false;
-		return true;
+	public int hashCode() {
+
+		return Objects.hash(getColor(), isRadar(), getHeight(), getLength(), getWingspan(), getGrossWeight());
 	}
 
 	@Override

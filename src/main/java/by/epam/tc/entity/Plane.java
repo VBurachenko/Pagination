@@ -1,5 +1,7 @@
 package by.epam.tc.entity;
 
+import java.util.Objects;
+
 public class Plane {
 
 	private String id;
@@ -118,76 +120,31 @@ public class Plane {
 	}
 
 	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + cargoCapacity;
-		result = prime * result + crew;
-		result = prime * result + ((engine == null) ? 0 : engine.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((manufacturer == null) ? 0 : manufacturer.hashCode());
-		result = prime * result + ((model == null) ? 0 : model.hashCode());
-		result = prime * result + ((origin == null) ? 0 : origin.hashCode());
-		result = prime * result + ((parameters == null) ? 0 : parameters.hashCode());
-		result = prime * result + passengerCapacity;
-		result = prime * result + price;
-		result = prime * result + ((type == null) ? 0 : type.hashCode());
-		return result;
+	public boolean equals(Object o) {
+		if (this == o) {
+			return true;
+		}
+		if (o == null || getClass() != o.getClass()) {
+			return false;
+		}
+		Plane plane = (Plane) o;
+		return getCrew() == plane.getCrew() &&
+				getPassengerCapacity() == plane.getPassengerCapacity() &&
+				getCargoCapacity() == plane.getCargoCapacity() &&
+				getPrice() == plane.getPrice() &&
+				Objects.equals(getId(), plane.getId()) &&
+				Objects.equals(getManufacturer(), plane.getManufacturer()) &&
+				Objects.equals(getModel(), plane.getModel()) &&
+				Objects.equals(getOrigin(), plane.getOrigin()) &&
+				Objects.equals(getType(), plane.getType()) &&
+				Objects.equals(getEngine(), plane.getEngine()) &&
+				Objects.equals(getParameters(), plane.getParameters());
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Plane other = (Plane) obj;
-		if (cargoCapacity != other.cargoCapacity)
-			return false;
-		if (crew != other.crew)
-			return false;
-		if (engine == null) {
-			if (other.engine != null)
-				return false;
-		} else if (!engine.equals(other.engine))
-			return false;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		if (manufacturer == null) {
-			if (other.manufacturer != null)
-				return false;
-		} else if (!manufacturer.equals(other.manufacturer))
-			return false;
-		if (model == null) {
-			if (other.model != null)
-				return false;
-		} else if (!model.equals(other.model))
-			return false;
-		if (origin == null) {
-			if (other.origin != null)
-				return false;
-		} else if (!origin.equals(other.origin))
-			return false;
-		if (parameters == null) {
-			if (other.parameters != null)
-				return false;
-		} else if (!parameters.equals(other.parameters))
-			return false;
-		if (passengerCapacity != other.passengerCapacity)
-			return false;
-		if (price != other.price)
-			return false;
-		if (type == null) {
-			if (other.type != null)
-				return false;
-		} else if (!type.equals(other.type))
-			return false;
-		return true;
+	public int hashCode() {
+
+		return Objects.hash(getId(), getManufacturer(), getModel(), getOrigin(), getType(), getCrew(), getPassengerCapacity(), getCargoCapacity(), getPrice(), getEngine(), getParameters());
 	}
 
 	@Override

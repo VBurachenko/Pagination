@@ -32,6 +32,7 @@ public class FrontController extends HttpServlet {
 
         String url = command.execute(request);
         request.getRequestDispatcher(url).forward(request, response);
+
     }
 
 }
