@@ -6,6 +6,9 @@ import by.epam.tc.controller.command.impl.ParseCommand;
 import java.util.HashMap;
 import java.util.Map;
 
+import static by.epam.tc.controller.command.UrlPattern.HOME;
+import static by.epam.tc.controller.command.UrlPattern.MAIN;
+
 public final class CommandFactory {
 
     private static final CommandFactory INSTANCE = new CommandFactory();
@@ -15,8 +18,8 @@ public final class CommandFactory {
 
     private static final Map<String, Command> ACTIONS = new HashMap<String, Command>(){
         {
-            put("/main.do", new ParseCommand());
-            put("/home.do", new HomeCommand());
+            put(MAIN, new ParseCommand());
+            put(HOME, new HomeCommand());
         }
     };
 
