@@ -6,8 +6,8 @@ import by.epam.tc.controller.command.impl.ParseCommand;
 import java.util.HashMap;
 import java.util.Map;
 
-import static by.epam.tc.controller.command.UrlPattern.HOME;
-import static by.epam.tc.controller.command.UrlPattern.MAIN;
+import static by.epam.tc.controller.command.mapping.UrlPattern.HOME;
+import static by.epam.tc.controller.command.mapping.UrlPattern.MAIN;
 
 public final class CommandFactory {
 

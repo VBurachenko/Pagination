@@ -1,7 +1,7 @@
 package by.epam.tc.controller.command.impl;
 
 import by.epam.tc.controller.command.Command;
-import by.epam.tc.controller.command.PathEnum;
+import by.epam.tc.controller.command.mapping.PathEnum;
 import by.epam.tc.entity.Plane;
 import by.epam.tc.service.ParserService;
 import by.epam.tc.service.ServiceFactory;

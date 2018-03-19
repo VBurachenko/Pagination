@@ -1,4 +1,4 @@
-package by.epam.tc.controller.command;
+package by.epam.tc.controller.command.mapping;
 
 public enum PathEnum {
 
