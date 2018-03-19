@@ -1,6 +1,6 @@
 package by.epam.tc.controller.command;
 
-public enum UrlEnum {
+public enum PathEnum {
 
     ERROR("/WEB-INF/jsp/error.jsp"),
     HOME("/WEB-INF/jsp/home.jsp"),
@@ -8,7 +8,7 @@ public enum UrlEnum {
 
     private String path;
 
-    UrlEnum(String path) {
+    PathEnum(String path) {
         this.path = path;
     }
 

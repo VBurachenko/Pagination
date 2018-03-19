@@ -1,7 +1,7 @@
 package by.epam.tc.controller.command.impl;
 
 import by.epam.tc.controller.command.Command;
-import by.epam.tc.controller.command.UrlEnum;
+import by.epam.tc.controller.command.PathEnum;
 import by.epam.tc.entity.Plane;
 import by.epam.tc.service.ParserService;
 import by.epam.tc.service.ServiceFactory;
@@ -49,7 +49,7 @@ public class ParseCommand implements Command {
 
         } catch (ServiceException e) {
             LOGGER.error(e.getMessage());
-            return UrlEnum.ERROR.getPath();
+            return PathEnum.ERROR.getPath();
         }
 
         request.setAttribute(ITEMS, items);
@@ -57,7 +57,7 @@ public class ParseCommand implements Command {
         request.setAttribute(PAGE, page);
         request.setAttribute(COMMAND, parserTypeName);
 
-        return UrlEnum.MAIN.getPath();
+        return PathEnum.MAIN.getPath();
     }
 
     private int setPage(HttpServletRequest request){
