@@ -33,9 +33,9 @@ public class ParserServiceImpl implements ParserService{
     }
 
     @Override
-    public int generateCountOfPages(String parsetTypeName, int itemsPerPage) throws ServiceException{
+    public int generateCountOfPages(String parserTypeName, int itemsPerPage) throws ServiceException{
 
-        int totalCountOfItems = getTotalCountOfItems(parsetTypeName);
+        int totalCountOfItems = getTotalCountOfItems(parserTypeName);
 
         return (int) Math.ceil(totalCountOfItems * 1.0/ itemsPerPage);
     }
